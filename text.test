@@ -1,0 +1,198 @@
+Onwards and upwards.
+
+We're now on level 5 authentication
+
+and in this lesson we're going to talk all about cookies and sessions.
+
+Now just a word of warning here, during the lesson
+
+if you continue watching you may start to feel that you get a little bit hungry.
+
+So don't blame me if I've just completely derailed your diet plan because in this lesson we're going
+
+to talk all about cookies and their yummy goodness.
+
+Not really. The type of cookies that we're talking about that relate the Web Development are more similar
+
+to fortune cookies because they have a message that's packaged inside and you can pass these around
+
+and they can be broken to reveal the message.
+
+So you've probably come across cookies before. But if you haven't,
+
+I just want to show you how it works in practice.
+
+So let's say we go onto Amazon and we search for the switch
+
+right?
+
+The Nintendo switch. And we decide to go ahead and add it to basket.
+
+So now when we look inside our basket you can see we have one item, the switch right?
+
+And then we're going to do something that all e-commerce sites hate.
+
+We're going to go and navigate away and abandon our shopping cart.
+
+Now this to any e-commerce website is a real crime because the user obviously wanted to buy something
+
+but then at some point they got distracted by something else abandoning their cart without checking
+
+out.
+
+So what does Amazon do?
+
+Well as soon as you added that item to the cart, Amazon has created a cookie and it stored that cookie
+
+on your browser.
+
+So how do we go and view that cookie?
+
+Well inside chrome if you go to settings and you search for "cookie", if you scroll right to the bottom
+
+it shows you that there's something relating to cookies inside content settings.
+
+So if we go over there and we click on cookies, you can see there's this option to see all cookies and
+
+site data. And now you can see that Amazon has not added just one cookie just by doing that very small
+
+act of adding a Nintendo switch to an Amazon basket
+
+Amazon has told our browser to save all sorts of information about ourselves. And if we click on amazon.
+
+co.uk, you can see there's the session-token the session-id, and these cookies don't necessarily
+
+contain any actual information
+
+say this user wanted to buy a Nintendo switch but what they do contain is an ID number. And this ID
+
+will be used to fetch all of those things that you added to your cart during this browsing session on
+
+Amazon.
+
+And this is why if you decide to go and close down your browser and you open it back up and let's head
+
+back to amazon.co.uk you can see that my switch is still inside the basket.
+
+So they haven't forgotten this.
+
+So that means the next time I go on to Amazon that Nintendo switch is still going to be in my shopping
+
+basket.
+
+However if we go into those cookies for Amazon and we go ahead and delete it.
+
+So let's go back to see all
+
+cookies and site data
+
+we find the one that is directly related to Amazon and we remove all of these.
+
+Now if we go and refresh this website you can see we forced it to forget our last browsing session
+
+and it doesn't know about that Nintendo switch anymore.
+
+Now on the internet cookies are used widely to save these browsing sessions
+
+and it goes beyond just saving your last actions on the website.
+
+When Amazon adds those cookies to my browser it also means that when I go and visit another website say
+
+if I go onto Facebook then it knows who I am and what items I wanted to buy on Amazon. And it'll try to
+
+remind me of that thing that I wanted to buy on Amazon.
+
+And it's kind of creepy but this is essentially how retargeting ads work.
+
+Once a user comes your website initiates some sort of buying behavior and then they decide to abandon
+
+cart, you save what it is that they wanted and then on other websites or when they come back onto your
+
+website you remind them about that thing that they wanted to buy.
+
+And this is all done through cookies and sessions.
+
+So if we review this from a web development point of view it means that say on day 1 when I go into
+
+Chrome and I type in amazon.com, my browser will make a get request to Amazon server requesting for
+
+their home page. Amazon server will then respond to that request and send over the HTML, CSS and JavaScript
+
+files that are needed for my browser to be able to render the Amazon website.
+
+And then let's say that we decided to add a computer to our cart,
+
+well that is equivalent to making a post request to Amazon server saying that I would like to buy a
+
+computer
+
+right?
+
+And it's at this moment in time when Amazon servers will create a cookie that contains that data,
+
+"This user wanted to buy a computer." And when it responds to the post request that cookie gets sent along
+
+and the browser gets told to save that cookie.
+
+So that means that if I now get distracted and I decide to go onto Facebook or whatever it may be.
+
+But if I come back tomorrow
+
+that cookie is still saved on my browser.
+
+So the next time that I make a get request to Amazon server, that cookie gets sent along with my get
+
+request to allow the server to be able to identify who I am and see if I had any previous sessions on
+
+Amazon.
+
+And it's the equivalent of cracking open that fortune cookie revealing
+
+what were the previous things that I wanted to buy,
+
+so in this case it was a computer. And then they could respond with the HTML, CSS, Javascript
+
+and also render my cart so that the computer is already added in the cart.
+
+So there are lots of different types of cookies but the types of cookies that we're going to be looking
+
+at are the ones that are used to establish and maintain a session.
+
+Now a session is a period of time when a browser interacts with a server.
+
+So usually when you log into a website that's when your session starts and that's when your fortune
+
+cookie gets created.
+
+And inside that fortune cookie you'll have your user credentials that says this user is logged in and
+
+has been successfully authenticated.
+
+So that means as you continue to browse the website you won't be asked to login again when you try
+
+to access a page that requires authentication because they can always check against that active cookie
+
+that you have on your browser and it maintains your authentication for this browsing session until
+
+the point when you log out which is when this session ends and the cookie that's related to the session
+
+gets destroyed.
+
+So we're going to be implementing cookies and sessions into our website and we're going to be doing
+
+it using something called Passport.
+
+Now if you're good on Node.js and authentication it's almost impossible to not mention Passport.
+
+And it's something that's very very flexible and allows you to authenticate your users using either
+
+a local strategy like what we're doing right now which is username and password or use a whole bunch
+
+of other services such as Google, Facebook, LinkedIn Twitter.
+
+And it makes it a lot easier for you to be able to plug these different ways of authentication into
+
+your website.
+
+So let's get started learning about Passport and learning about how we can implement cookies and sessions.
+
